@@ -116,6 +116,7 @@ def getWaterLevel():
 		try:													#
 			r = s.post(url)											# load data from url as r
 			content=r.text											# save the full string as content
+			r.close()											# close the connection to the server
 			content=content[-10:]										# delete everything but the ten last chars
 			content=content.split(',', 1);									# cut the string at the defined JSON markerpoint 1
 			content=content[1].split("]", 1);								# cut the string at the defined JSON markerpoint 2
